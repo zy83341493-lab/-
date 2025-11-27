@@ -1,413 +1,395 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 赋能，革新未来 - 立即添加微信</title>
+    <style>
+        /* 1. 全局样式和重置 (CSS 保持大部分不变) */
+        :root {
+            --dark-bg: #1A1A2E; 
+            --light-text: #FFFFFF;
+            --accent-color: #00bcd4; /* 青色强调色 */
+            --light-section-bg: #f8f9fa;
+            --card-bg: #2C2C40;
+            --success-color: #4CAF50; /* 成功绿色用于复制提示 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-section-bg);
+        }
+
+        /* 2. 通用容器和布局 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 3. 按钮样式 (新增 copy-btn 样式) */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+        }
+
+        .btn-primary:hover {
+            background-color: #00a0b2;
+            transform: translateY(-2px);
+        }
+
+        .btn-copy { /* 复制按钮的特殊样式 */
+            background-color: var(--success-color);
+            color: var(--light-text);
+            padding: 15px 40px;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-copy:hover {
+            background-color: #45a049;
+        }
+
+        /* 4. 头部/英雄/功能区 (保持不变) */
+        .header {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--light-text);
+        }
+
+        .hero-section {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-title span {
+            color: var(--accent-color);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+            text-align: left;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 5px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 30px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(0, 188, 212, 0.15);
+            border-radius: 50%;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--light-text);
+        }
+
+        .feature-card p {
+            color: #ccc;
+            font-size: 1em;
+        }
+
+        /* 5. 微信 CTA 区 (替代原来的表单区) */
+        .wechat-cta-section {
+            padding: 80px 0;
+            background-color: var(--light-section-bg);
+            text-align: center;
+        }
+
+        .wechat-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--success-color);
+        }
+
+        .wechat-box h2 {
+            font-size: 2.8em;
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+        }
+
+        .wechat-box p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* 微信号展示样式 */
+        .wechat-id-display {
+            display: inline-block;
+            background-color: #e8f5e9; /* 浅绿色背景 */
+            color: var(--dark-bg);
+            font-size: 2em;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px dashed var(--success-color);
+        }
+
+        /* 复制成功的提示信息 */
+        #copy-message {
+            margin-top: 20px;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .qr-code-placeholder {
+            margin-top: 40px;
+            border: 2px dashed #ddd;
+            width: 180px;
+            height: 180px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto 0;
+            border-radius: 5px;
+            color: #999;
+        }
+        
+        /* 6. 页脚 (保持不变) */
+        .footer {
+            background-color: #11111d;
+            color: #aaa;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        /* 7. 响应式设计 (保持不变) */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3em;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-CN"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;AI 赋能，革新未来 - 立即添加微信&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 1. 全局样式和重置 (CSS 保持大部分不变) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--dark-bg: #1A1A2E;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>--light-text: #FFFFFF;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--accent-color: #00bcd4; /* 青色强调色 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--light-section-bg: #f8f9fa;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--card-bg: #2C2C40;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--success-color: #4CAF50; /* 成功绿色用于复制提示 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--light-section-bg);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 2. 通用容器和布局 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 3. 按钮样式 (新增 copy-btn 样式) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.3s ease, transform 0.2s ease;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--dark-bg);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #00a0b2;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-copy { /* 复制按钮的特殊样式 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--success-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--light-text);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-copy:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #45a049;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 4. 头部/英雄/功能区 (保持不变) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--dark-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--light-text);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: sticky;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 100;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.header .container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.logo {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--light-text);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--dark-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--light-text);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 80px 0 60px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 4em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero-title span {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero-subtitle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.3em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.9;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.features-grid {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(3, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 60px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--card-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-top: 5px solid var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-icon {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(0, 188, 212, 0.15);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card h3 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--light-text);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.feature-card p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #ccc;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1em;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 5. 微信 CTA 区 (替代原来的表单区) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.wechat-cta-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 80px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--light-section-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.wechat-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 700px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-top: 5px solid var(--success-color);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.wechat-box h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.8em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--dark-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.wechat-box p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 微信号展示样式 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.wechat-id-display {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e8f5e9; /* 浅绿色背景 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--dark-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px dashed var(--success-color);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 复制成功的提示信息 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#copy-message {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--success-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.qr-code-placeholder {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 2px dashed #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 180px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 180px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 40px auto 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #999;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 6. 页脚 (保持不变) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #11111d;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #aaa;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9em;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 7. 响应式设计 (保持不变) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 992px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.hero-title {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-size: 3em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.features-grid {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(2, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 600px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.hero-title {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-size: 2.5em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.features-grid {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="logo"&gt;AI-Tech&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="document.getElementById('wechat-copy-btn').click();" class="btn btn-primary"&gt;一键加微信&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="hero-title"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>AI赋能，&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>革新未来 &lt;span&gt;效率至上&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="hero-subtitle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>突破传统界限，利用尖端人工智能技术，为您的业务带来颠覆性的变革和指数级增长。立即添加微信，免费咨询！</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="document.getElementById('wechat-copy-btn').click();" class="btn btn-primary"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>免费咨询 (点击复制微信号)</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="features-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="feature-icon"&gt;🧠&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;智能决策支持&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;基于大数据模型，提供精准预测和深度见解，辅助您做出最佳商业决策。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="feature-icon"&gt;🚀&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;流程自动化管理&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;自动完成重复性工作流，大幅提升运营效率，让您的团队专注于创新。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="feature-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="feature-icon"&gt;🛡️&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;安全可靠保障&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;采用行业顶尖的安全标准，确保数据处理过程的高度私密性和系统稳定性。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="wechat-cta" class="wechat-cta-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="wechat-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>立即添加微信，获取专属方案</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>复制微信号，或直接扫码，与我们的一对一顾问开始对话。</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="wechat-id-display" id="display-wechat-id"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>YourWeChatID_888</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" id="wechat-id-input" value="YourWeChatID_888" readonly style="position: absolute; left: -9999px;"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="wechat-copy-btn" class="btn btn-copy" onclick="copyWeChatID()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>✅ 一键复制微信号</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p id="copy-message"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>微信号已成功复制到剪贴板！</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="qr-code-placeholder"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>在此放置您的微信二维码</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="footer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&amp;copy; 2023 AI-Tech. 保留所有权利。粤ICP备xxxxxx号&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
-<p class="p1"><span class="Apple-converted-space">         </span>* 复制微信号到剪贴板</p>
-<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function copyWeChatID() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const copyText = document.getElementById("wechat-id-input");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const message = document.getElementById("copy-message");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// 1. 尝试使用现代的 Clipboard API</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (navigator.clipboard &amp;&amp; navigator.clipboard.writeText) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>navigator.clipboard.writeText(copyText.value).then(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>// 成功反馈</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>message.style.opacity = 1;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>setTimeout(() =&gt; { message.style.opacity = 0; }, 2000);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}).catch(err =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>// 如果失败，回退到传统方法</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>fallbackCopyTextToClipboard(copyText, message);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// 浏览器不支持 Clipboard API，使用传统方法</p>
-<p class="p1"><span class="Apple-converted-space">                </span>fallbackCopyTextToClipboard(copyText, message);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
-<p class="p1"><span class="Apple-converted-space">         </span>* 传统复制方法的回退函数</p>
-<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function fallbackCopyTextToClipboard(copyText, message) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>copyText.style.display = 'block'; // 临时显示输入框</p>
-<p class="p1"><span class="Apple-converted-space">            </span>copyText.select();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>copyText.setSelectionRange(0, 99999); // 针对移动设备</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const successful = document.execCommand('copy');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (successful) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>message.style.opacity = 1;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>setTimeout(() =&gt; { message.style.opacity = 0; }, 2000);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} catch (err) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>console.error('复制失败', err);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert('复制失败，请手动复制微信号: ' + copyText.value);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} finally {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>copyText.style.display = 'none'; // 隐藏输入框</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// 恢复之前的隐藏样式</p>
-<p class="p1"><span class="Apple-converted-space">                </span>copyText.style.position = 'absolute';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>copyText.style.left = '-9999px';<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 🚨 提醒：请替换您的微信号！</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('display-wechat-id').textContent = 'YourWeChatID_888';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('wechat-id-input').value = 'YourWeChatID_888';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <header class="header">
+        <div class="container">
+            <span class="logo">AI-Tech</span>
+            <button onclick="document.getElementById('wechat-copy-btn').click();" class="btn btn-primary">一键加微信</button>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">
+                AI赋能，<br>
+                革新未来 <span>效率至上</span>
+            </h1>
+            <p class="hero-subtitle">
+                突破传统界限，利用尖端人工智能技术，为您的业务带来颠覆性的变革和指数级增长。立即添加微信，免费咨询！
+            </p>
+            <button onclick="document.getElementById('wechat-copy-btn').click();" class="btn btn-primary">
+                免费咨询 (点击复制微信号)
+            </button>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>智能决策支持</h3>
+                    <p>基于大数据模型，提供精准预测和深度见解，辅助您做出最佳商业决策。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>流程自动化管理</h3>
+                    <p>自动完成重复性工作流，大幅提升运营效率，让您的团队专注于创新。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>安全可靠保障</h3>
+                    <p>采用行业顶尖的安全标准，确保数据处理过程的高度私密性和系统稳定性。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="wechat-cta" class="wechat-cta-section">
+        <div class="container">
+            <div class="wechat-box">
+                <h2>
+                    立即添加微信，获取专属方案
+                </h2>
+                <p>
+                    复制微信号，或直接扫码，与我们的一对一顾问开始对话。
+                </p>
+                
+                <div class="wechat-id-display" id="display-wechat-id">
+                    YourWeChatID_888
+                </div>
+                
+                <input type="text" id="wechat-id-input" value="YourWeChatID_888" readonly style="position: absolute; left: -9999px;">
+                
+                <button id="wechat-copy-btn" class="btn btn-copy" onclick="copyWeChatID()">
+                    ✅ 一键复制微信号
+                </button>
+                
+                <p id="copy-message">
+                    微信号已成功复制到剪贴板！
+                </p>
+
+                <div class="qr-code-placeholder">
+                    <img src="b9967e1885dba1800172fdfb04327af8.jpg" alt="微信二维码" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 AI-Tech. 保留所有权利。粤ICP备xxxxxx号</p>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * 复制微信号到剪贴板
+         */
+        function copyWeChatID() {
+            const copyText = document.getElementById("wechat-id-input");
+            const message = document.getElementById("copy-message");
+
+            // 1. 尝试使用现代的 Clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(copyText.value).then(() => {
+                    // 成功反馈
+                    message.style.opacity = 1;
+                    setTimeout(() => { message.style.opacity = 0; }, 2000);
+                }).catch(err => {
+                    // 如果失败，回退到传统方法
+                    fallbackCopyTextToClipboard(copyText, message);
+                });
+            } else {
+                // 浏览器不支持 Clipboard API，使用传统方法
+                fallbackCopyTextToClipboard(copyText, message);
+            }
+        }
+
+        /**
+         * 传统复制方法的回退函数
+         */
+        function fallbackCopyTextToClipboard(copyText, message) {
+            copyText.style.display = 'block'; // 临时显示输入框
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // 针对移动设备
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    message.style.opacity = 1;
+                    setTimeout(() => { message.style.opacity = 0; }, 2000);
+                }
+            } catch (err) {
+                console.error('复制失败', err);
+                alert('复制失败，请手动复制微信号: ' + copyText.value);
+            } finally {
+                copyText.style.display = 'none'; // 隐藏输入框
+                // 恢复之前的隐藏样式
+                copyText.style.position = 'absolute';
+                copyText.style.left = '-9999px'; 
+            }
+        }
+
+        // 🚨 提醒：请替换您的微信号！
+        document.getElementById('display-wechat-id').textContent = 'YourWeChatID_888';
+        document.getElementById('wechat-id-input').value = 'YourWeChatID_888';
+    </script>
+
 </body>
 </html>
