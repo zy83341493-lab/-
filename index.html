@@ -103,12 +103,13 @@
             text-shadow: 0 0 5px rgba(245, 125, 51, 0.5); 
         }
 
-        /* 5. 英雄/高定区 - 背景图设置 (确保文件名为 hero_bg.jpg) */
+        /* 5. 英雄/高定区 - 修复背景图引用 */
         .hero-section {
             padding: 60px 0 40px;
             text-align: center;
             color: var(--light-text);
             
+            /* 【核心修复】确保引用文件名是 hero_bg.jpg */
             background: url('hero_bg.jpg') center center no-repeat;
             background-size: cover;
             position: relative;
@@ -194,7 +195,7 @@
             transition: opacity 0.3s ease;
         }
         
-        /* 【已修改】二维码放大至 250px */
+        /* 二维码放大至 250px */
         .qr-code-placeholder {
             width: 250px; 
             height: 250px;
@@ -270,7 +271,6 @@
              .features-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left; }
              .feature-card { padding: 30px; }
              .wechat-cta-section p { max-width: 600px; }
-             /* 桌面端二维码也相应放大 */
              .wechat-id-display { font-size: 2.5em; }
              .qr-code-placeholder { width: 300px; height: 300px; } 
         }
