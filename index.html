@@ -51,9 +51,9 @@
             border: none;
             text-transform: uppercase;
             margin-bottom: 15px;
-            max-width: 500px; /* 限制按钮最大宽度，防止手机上过宽 */
-            margin-left: auto; /* 居中 */
-            margin-right: auto; /* 居中 */
+            max-width: 500px; 
+            margin-left: auto; 
+            margin-right: auto; 
         }
 
         .btn-primary {
@@ -103,7 +103,7 @@
             text-shadow: 0 0 5px rgba(245, 125, 51, 0.5); 
         }
 
-        /* 5. 英雄/高定区 - 背景图设置 */
+        /* 5. 英雄/高定区 - 背景图设置 (确保文件名为 hero_bg.jpg) */
         .hero-section {
             padding: 60px 0 40px;
             text-align: center;
@@ -148,14 +148,13 @@
             position: relative;
         }
         
-        /* 6. 微信 CTA 区 (修改这里，移除白色框样式) */
+        /* 6. 微信 CTA 区 */
         .wechat-cta-section {
             padding: 50px 0;
             background-color: var(--light-section-bg);
             text-align: center;
         }
         
-        /* 原来的 .wechat-box 样式已被移除，内容直接在 container 中居中 */
         .wechat-cta-section h2 {
             font-size: 2.2em;
             color: var(--dark-bg);
@@ -195,9 +194,10 @@
             transition: opacity 0.3s ease;
         }
         
+        /* 【已修改】二维码放大至 250px */
         .qr-code-placeholder {
-            width: 180px;
-            height: 180px;
+            width: 250px; 
+            height: 250px;
             margin: 30px auto 0;
             border-radius: 5px;
             overflow: hidden;
@@ -228,8 +228,29 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease, background-color 0.3s ease;
         }
-        /* ... 其他卡片样式保持不变 ... */
         
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background-color: #383838;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+        }
+
+        .feature-card p {
+            color: #ccc;
+            font-size: 0.95em;
+        }
+
         /* 7. 页脚 */
         .footer {
             background-color: #111111;
@@ -248,10 +269,10 @@
              .hero-subtitle { font-size: 1.4em; }
              .features-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left; }
              .feature-card { padding: 30px; }
-             /* 桌面端 CTA 区域也取消 box 样式，但保留最大宽度限制 */
              .wechat-cta-section p { max-width: 600px; }
+             /* 桌面端二维码也相应放大 */
              .wechat-id-display { font-size: 2.5em; }
-             .qr-code-placeholder { width: 200px; height: 200px; }
+             .qr-code-placeholder { width: 300px; height: 300px; } 
         }
     </style>
 </head>
@@ -302,7 +323,7 @@
             </p>
 
             <div class="qr-code-placeholder">
-                <img src="b9967e1885dba1800172fdfb04327af8.jpg" alt="微信二维码：BCK8837">
+                <img src="bkc8837.jpg" alt="微信二维码：BCK8837">
             </div>
             <p style="margin-top: 20px; font-size: 0.95em; color: #888;">
                 长按或截图扫码添加，或点击上方按钮复制微信号。
