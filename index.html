@@ -7,12 +7,12 @@
     <style>
         /* 1. 全局样式和移动端优化 */
         :root {
-            --dark-bg: #202020; /* 深炭黑背景 */
-            --light-text: #FFFFFF; /* 白色文字 */
+            --dark-bg: #202020;
+            --light-text: #FFFFFF;
             --accent-color: #F57D33; /* 爱马仕橙色 */
             --light-section-bg: #f5f5f5; /* 浅灰色区域背景 */
-            --card-bg: #333333; /* 卡片背景 */
-            --success-color: #00A388; /* 成功绿色用于复制提示 */
+            --card-bg: #333333;
+            --success-color: #00A388;
         }
 
         * {
@@ -51,16 +51,19 @@
             border: none;
             text-transform: uppercase;
             margin-bottom: 15px;
+            max-width: 500px; /* 限制按钮最大宽度，防止手机上过宽 */
+            margin-left: auto; /* 居中 */
+            margin-right: auto; /* 居中 */
         }
 
         .btn-primary {
             background-color: var(--accent-color);
             color: var(--dark-bg);
-            box-shadow: 0 4px 12px rgba(245, 125, 51, 0.4); /* 阴影颜色也变橙色 */
+            box-shadow: 0 4px 12px rgba(245, 125, 51, 0.4);
         }
 
         .btn-primary:hover {
-            background-color: #E66A21; /* 橙色变深 */
+            background-color: #E66A21;
             transform: translateY(-2px);
         }
 
@@ -96,21 +99,20 @@
         .logo {
             font-size: 26px;
             font-weight: 800;
-            color: var(--accent-color); /* 橙色 Logo */
+            color: var(--accent-color);
             text-shadow: 0 0 5px rgba(245, 125, 51, 0.5); 
         }
 
-        /* 5. 英雄/高定区 - 增加背景图样式 */
+        /* 5. 英雄/高定区 - 背景图设置 */
         .hero-section {
             padding: 60px 0 40px;
             text-align: center;
             color: var(--light-text);
             
-            /* 背景图设置 */
-            background: url('第一块背景.jpg') center center no-repeat;
+            background: url('hero_bg.jpg') center center no-repeat;
             background-size: cover;
             position: relative;
-            z-index: 1; /* 确保内容在遮罩之上 */
+            z-index: 1;
         }
 
         /* 背景遮罩层 */
@@ -121,8 +123,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.65); /* 65% 透明度深色遮罩 */
-            z-index: -1; /* 确保遮罩在背景之上，内容之下 */
+            background: rgba(0, 0, 0, 0.65);
+            z-index: -1;
         }
 
         .hero-title {
@@ -131,95 +133,48 @@
             margin-bottom: 15px;
             line-height: 1.1;
             letter-spacing: 1px;
-            position: relative; /* 确保标题在遮罩上 */
+            position: relative;
         }
         
         .hero-title span {
-            color: var(--accent-color); /* 橙色重点 */
+            color: var(--accent-color);
         }
 
         .hero-subtitle {
             font-size: 1.1em;
             max-width: 90%;
             margin: 0 auto 30px;
-            opacity: 0.95; /* 提高副标题可见度 */
+            opacity: 0.95;
             position: relative;
         }
         
-        /* 6. 微信 CTA 区 和 7. 页脚样式不变 */
-        /* ... (保持与上一版相同) ... */
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .feature-card {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            border-top: 4px solid var(--accent-color);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            background-color: #383838;
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.4em;
-            margin-bottom: 8px;
-            color: var(--accent-color);
-        }
-
-        .feature-card p {
-            color: #ccc;
-            font-size: 0.95em;
-        }
-        
+        /* 6. 微信 CTA 区 (修改这里，移除白色框样式) */
         .wechat-cta-section {
             padding: 50px 0;
             background-color: var(--light-section-bg);
             text-align: center;
         }
-
-        .wechat-box {
-            max-width: 90%;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
-        }
-
-        .wechat-box h2 {
+        
+        /* 原来的 .wechat-box 样式已被移除，内容直接在 container 中居中 */
+        .wechat-cta-section h2 {
             font-size: 2.2em;
             color: var(--dark-bg);
             margin-bottom: 10px;
         }
 
-        .wechat-box p {
+        .wechat-cta-section p {
             font-size: 1.1em;
             color: #666;
             margin-bottom: 30px;
             font-weight: 500;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .wechat-id-display {
             display: inline-block;
-            background-color: #ffe8d6; /* 浅橙色背景 */
+            background-color: #ffe8d6;
             color: var(--dark-bg);
             font-size: 2em;
             font-weight: bold;
@@ -256,6 +211,26 @@
             object-fit: contain;
         }
 
+        /* 底部卡片样式（保持不变） */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid var(--accent-color);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        /* ... 其他卡片样式保持不变 ... */
+        
+        /* 7. 页脚 */
         .footer {
             background-color: #111111;
             color: #666;
@@ -264,7 +239,7 @@
             font-size: 0.85em;
         }
 
-        /* 桌面端适应 - 保持不变 */
+        /* 桌面端适应 */
         @media (min-width: 768px) {
              .container { max-width: 1000px; padding: 0 20px; }
              .btn { display: inline-block; width: auto; padding: 14px 40px; margin: 0 10px 0 0; }
@@ -273,9 +248,8 @@
              .hero-subtitle { font-size: 1.4em; }
              .features-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left; }
              .feature-card { padding: 30px; }
-             .wechat-box { max-width: 800px; padding: 60px; }
-             .wechat-box h2 { font-size: 3em; }
-             .wechat-box p { font-size: 1.3em; }
+             /* 桌面端 CTA 区域也取消 box 样式，但保留最大宽度限制 */
+             .wechat-cta-section p { max-width: 600px; }
              .wechat-id-display { font-size: 2.5em; }
              .qr-code-placeholder { width: 200px; height: 200px; }
         }
@@ -306,35 +280,33 @@
 
     <section class="wechat-cta-section">
         <div class="container">
-            <div class="wechat-box">
-                <h2>
-                    限量定制 | 专属顾问
-                </h2>
-                <p>
-                    每日仅限少数名额。立即添加微信，开启您的奢华定制之旅！
-                </p>
-                
-                <div class="wechat-id-display" id="display-wechat-id">
-                    BCK8837
-                </div>
-                
-                <input type="text" id="wechat-id-input" value="BCK8837" readonly style="position: absolute; left: -9999px;">
-                
-                <button id="wechat-copy-btn" class="btn btn-copy" onclick="copyWeChatID()">
-                    ✅ 一键复制微信: BCK8837
-                </button>
-                
-                <p id="copy-message">
-                    微信号已复制！正在尝试打开微信...
-                </p>
-
-                <div class="qr-code-placeholder">
-                    <img src="b9967e1885dba1800172fdfb04327af8.jpg" alt="微信二维码：BCK8837">
-                </div>
-                <p style="margin-top: 20px; font-size: 0.95em; color: #888;">
-                    长按或截图扫码添加，或点击上方按钮复制微信号。
-                </p>
+            <h2>
+                限量定制 | 专属顾问
+            </h2>
+            <p>
+                每日仅限少数名额。立即添加微信，开启您的奢华定制之旅！
+            </p>
+            
+            <div class="wechat-id-display" id="display-wechat-id">
+                BCK8837
             </div>
+            
+            <input type="text" id="wechat-id-input" value="BCK8837" readonly style="position: absolute; left: -9999px;">
+            
+            <button id="wechat-copy-btn" class="btn btn-copy" onclick="copyWeChatID()">
+                ✅ 一键复制微信: BCK8837
+            </button>
+            
+            <p id="copy-message">
+                微信号已复制！正在尝试打开微信...
+            </p>
+
+            <div class="qr-code-placeholder">
+                <img src="b9967e1885dba1800172fdfb04327af8.jpg" alt="微信二维码：BCK8837">
+            </div>
+            <p style="margin-top: 20px; font-size: 0.95em; color: #888;">
+                长按或截图扫码添加，或点击上方按钮复制微信号。
+            </p>
         </div>
     </section>
 
